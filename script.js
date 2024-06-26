@@ -1,14 +1,16 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const products = document.querySelectorAll('.product');
 
-    // Add click event listener to each product's Order Now button
-    products.forEach((product, index) => {
-        const orderButton = product.querySelector('.order-button');
-        orderButton.addEventListener('click', (event) => {
-            event.preventDefault();
-            const productName = product.querySelector('.product-title').textContent;
-            const productPrice = product.querySelector('.product-price').textContent;
-            alert(`You have ordered ${productName} for ${productPrice}`);
+    document.addEventListener('DOMContentLoaded', () => {
+        const orderButtons = document.querySelectorAll('.order-button');
+        orderButtons.forEach(button => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                const productInfo = event.target.closest('.product-info');
+                const productTitle = productInfo.querySelector('.product-title').innerText;
+                const productPrice = productInfo.querySelector('.product-price').innerText;
+                const message = `Order Details:\nProduct: ${productTitle}\nPrice: ${productPrice}`;
+                const whatsappUrl = `https://wa.me/8101482088?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
         });
     });
 
@@ -56,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
