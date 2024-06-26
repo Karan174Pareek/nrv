@@ -8,7 +8,7 @@
                 const productTitle = productInfo.querySelector('.product-title').innerText;
                 const productPrice = productInfo.querySelector('.product-price').innerText;
                 const message = `Order Details:\nProduct: ${productTitle}\nPrice: ${productPrice}`;
-                const whatsappUrl = `https://wa.me/918101482088?text=${encodeURIComponent(message)}`;
+                const whatsappUrl = `https://wa.me/91 8101482088?text=${encodeURIComponent(message)}`;
                 window.open(whatsappUrl, '_blank');
             });
         });
