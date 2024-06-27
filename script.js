@@ -1,18 +1,102 @@
+// Initialize an empty cart array to store cart items
+let cart = [];
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const orderButtons = document.querySelectorAll('.order-button');
-        orderButtons.forEach(button => {
-            button.addEventListener('click', event => {
-                event.preventDefault();
-                const productInfo = event.target.closest('.product-info');
-                const productTitle = productInfo.querySelector('.product-title').innerText;
-                const productPrice = productInfo.querySelector('.product-price').innerText;
-                const message = `Order Details:\nProduct: ${productTitle}\nPrice: ${productPrice}`;
-                const whatsappUrl = `https://wa.me/91 8101482088?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
-            });
+// Function to add product to cart
+function addToCart(productId) {
+    // Find product details based on productId (you can implement this based on your backend or directly in JS)
+    let product = findProductById(productId);
+    
+    // Check if product already exists in cart
+    let existingItem = cart.find(item => item.productId === productId);
+    
+    if (existingItem) {
+        // If product already exists, increase quantity
+        existingItem.quantity++;
+    } else {
+        // If product does not exist, add it to cart with quantity 1
+        cart.push({ productId: productId, name: product.name, price: product.price, quantity: 1 });
+    }
+    
+    // Update the cart display
+    updateCartDisplay();
+}
+
+// Function to update cart display
+function updateCartDisplay() {
+    // Get the cart container element (where you want to display cart items)
+    let cartContainer = document.getElementById('cart-container');
+    
+    // Clear existing cart items
+    cartContainer.innerHTML = '';
+    
+    // Loop through each item in the cart and display it
+    cart.forEach(item => {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+            <span>${item.name}</span>
+            <span>Quantity: ${item.quantity}</span>
+        `;
+        cartContainer.appendChild(itemElement);
+    });
+}
+
+// Function to prepare cart items for WhatsApp message
+function prepareCartForWhatsApp() {
+    let message = "Order Details:%0A";
+    
+    // Loop through each item in the cart and add to message
+    cart.forEach(item => {
+        message += `${item.name} (${item.quantity} case)%0A`;
+    });
+    
+    // Encode message for URL
+    return encodeURIComponent(message);
+}
+
+// Function to handle checkout (redirect to WhatsApp)
+function checkout() {
+    let whatsappMessage = prepareCartForWhatsApp();
+    let whatsappURL = `https://wa.me/<whatsapp_number>?text=${whatsappMessage}`;
+    
+    // Redirect to WhatsApp
+    window.location.href = whatsappURL;
+}
+
+// Example function to find product details (replace with your implementation)
+function findProductById(productId) {
+    // Implement logic to fetch product details from your data source or hardcode it here
+    // This is a placeholder function
+    switch (productId) {
+        case '1':
+            return { productId: '1', name: 'Teafarm Gold 250g', price: 135.00 };
+        case '2':
+            return { productId: '2', name: 'Teafarm Gold 500g', price: 290.00 };
+        // Add more cases for other products as needed
+        default:
+            return null;
+    }
+}
+
+// Example event listener to handle Add to Cart button click
+document.addEventListener('DOMContentLoaded', function() {
+    let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
+    
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            let productId = button.getAttribute('data-product-id');
+            addToCart(productId);
         });
     });
+    
+    // Add event listener for checkout button
+    let checkoutButton = document.getElementById('checkout-btn');
+    checkoutButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        checkout();
+    });
+});
 
     // Handle form validation for login form
     const loginForm = document.querySelector('.login-form');

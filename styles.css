@@ -15,19 +15,19 @@ body {
 }
 
 .brand-logo {
-    font-size: 30px; 
+    font-size: 30px;
     font-weight: bold;
 }
 
 /* Navbar Styling */
 .navbar {
-    background-color: #90AEAD; 
+    background-color: #90AEAD;
     overflow: hidden;
 }
 
 .navbar-container {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     padding: 10px 20px;
 }
@@ -54,7 +54,7 @@ body {
 
 .nav-link:hover {
     color: #ff6347;
-    background-color: #0056b3; 
+    background-color: #0056b3;
 }
 
 .nav-auth .nav-link {
@@ -76,7 +76,7 @@ body {
     margin: 10px;
     width: calc(100% / 4 - 40px);
     transition: transform 0.3s, box-shadow 0.3s;
-    background-color: white; 
+    background-color: white;
 }
 
 .product img {
@@ -102,7 +102,7 @@ body {
     margin-bottom: 10px;
 }
 
-.order-button {
+.add-to-cart-button {
     display: inline-block;
     padding: 10px 15px;
     color: white;
@@ -112,7 +112,7 @@ body {
     transition: background-color 0.3s, transform 0.3s;
 }
 
-.order-button:hover {
+.add-to-cart-button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
@@ -131,7 +131,7 @@ body {
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
-        align-items: center; 
+        align-items: center;
     }
     .nav-menu {
         flex-direction: column;
@@ -154,10 +154,57 @@ body {
     .product-price {
         font-size: 14px;
     }
-    .order-button {
+    .add-to-cart-button {
         padding: 8px 12px;
     }
 }
+
+/* Order Now Button */
+.order-now-button {
+    text-align: right;
+    padding: 10px;
+}
+
+.order-now-button .nav-link {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.order-now-button .nav-link:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Cart Section */
+#cart-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item span {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Login and Signup Pages (if needed) */
+/* Add your login and signup page styling here */
+
 
 /* Login Page */
 .login-container {
