@@ -57,13 +57,12 @@ function prepareCartForWhatsApp() {
 // Function to handle checkout (redirect to WhatsApp)
 function checkout() {
     let whatsappMessage = prepareCartForWhatsApp();
-    let whatsappURL = `https://wa.me/<whatsapp_number>?text=${whatsappMessage}`;
+    let whatsappURL = `https://wa.me/<91 8101482088>?text=${whatsappMessage}`;
     
     // Redirect to WhatsApp
     window.location.href = whatsappURL;
 }
 
-// Example function to find product details (replace with your implementation)
 function findProductById(productId) {
     // Implement logic to fetch product details from your data source or hardcode it here
     // This is a placeholder function
