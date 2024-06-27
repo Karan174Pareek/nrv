@@ -57,7 +57,7 @@ function prepareCartForWhatsApp() {
 // Function to handle checkout (redirect to WhatsApp)
 function checkout() {
     let whatsappMessage = prepareCartForWhatsApp();
-    let whatsappURL = `https://wa.me/<91 8101482088>?text=${whatsappMessage}`;
+    let whatsappURL = `https://wa.me/918101482088?text=${whatsappMessage}`;
     
     // Redirect to WhatsApp
     window.location.href = whatsappURL;
@@ -97,50 +97,66 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-    // Handle form validation for login form
-    const loginForm = document.querySelector('.login-form');
-    if (loginForm) {
-        loginForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const email = document.querySelector('#email').value;
-            const password = document.querySelector('#password').value;
+// Handle form validation for login form (Assuming this is in another script)
+const loginForm = document.querySelector('.login-form');
+if (loginForm) {
+    loginForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
 
-            if (validateEmail(email) && validatePassword(password)) {
-                const userId = localStorage.getItem('userId');
-                if (userId) {
-                    alert('Login successful');
-                    // Redirect to the main page
-                    window.location.href = 'index.html';
-                } else {
-                    alert('User not found. Please sign up.');
-                }
+        if (validateEmail(email) && validatePassword(password)) {
+            const userId = localStorage.getItem('userId');
+            if (userId) {
+                alert('Login successful');
+                // Redirect to the main page
+                window.location.href = 'index.html';
             } else {
-                alert('Please enter a valid email and password');
+                alert('User not found. Please sign up.');
             }
-        });
-    }
+        } else {
+            alert('Please enter a valid email and password');
+        }
+    });
+}
+// Function to prepare cart items for WhatsApp message
+function prepareCartForWhatsApp() {
+    let message = "Order Details:\n"; // Initialize message with a header
+    
+    // Loop through each item in the cart and add to message
+    cart.forEach((item, index) => {
+        // Append each item's details to the message with newline characters
+        message += `${item.name} (Quantity: ${item.quantity})\n`;
+    });
+    
+    // Encode message for URL
+    return encodeURIComponent(message);
+}
 
-    // Handle form validation for signup form
-    const signupForm = document.querySelector('.signup-form');
-    if (signupForm) {
-        signupForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const name = document.querySelector('#name').value;
-            const email = document.querySelector('#email').value;
-            const password = document.querySelector('#password').value;
-            const confirmPassword = document.querySelector('#confirm-password').value;
 
-            if (validateName(name) && validateEmail(email) && validatePassword(password) && password === confirmPassword) {
-                const userId = Date.now(); // Mock user ID generation
-                localStorage.setItem('userId', userId);
-                alert('Signup successful. Your ID is ' + userId);
-                // Redirect to the login page
-                window.location.href = 'login.html';
-            } else {
-                alert('Please fill out the form correctly');
-            }
-        });
-    }
+
+
+// Handle form validation for signup form (Assuming this is in another script)
+const signupForm = document.querySelector('.signup-form');
+if (signupForm) {
+    signupForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const name = document.querySelector('#name').value;
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
+        const confirmPassword = document.querySelector('#confirm-password').value;
+
+        if (validateName(name) && validateEmail(email) && validatePassword(password) && password === confirmPassword) {
+            const userId = Date.now(); // Mock user ID generation
+            localStorage.setItem('userId', userId);
+            alert('Signup successful. Your ID is ' + userId);
+            // Redirect to the login page
+            window.location.href = 'login.html';
+        } else {
+            alert('Please fill out the form correctly');
+        }
+    });
+}
 
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
