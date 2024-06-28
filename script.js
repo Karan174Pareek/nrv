@@ -72,11 +72,55 @@ function findProductById(productId) {
         case '2':
             return { productId: '2', name: 'Teafarm Gold 500g', price: 290.00 };
         case '3':
-            return { productId: '3', name: 'Coconut Crunch', price: 290.00 };
+            return { productId: '3', name: 'Teafarm Gold 500g', price: 290.00 };
         case '4':
-            return { productId: '4', name: 'Choco Chip', price: 290.00 };
+            return { productId: '4', name: 'Coconut Crunch', price: 290.00 };
         case '5':
-            return { productId: '5', name: 'Choco Puff', price: 290.00 };
+            return { productId: '5', name: 'Choco Chip', price: 290.00 };
+        case '6':
+            return { productId: '6', name: 'Choco Puff', price: 290.00 };
+        case '7':
+            return { productId: '7', name: 'Cream Cracker', price: 290.00 };
+        case '8':
+            return { productId: '8', name: 'Choco Treat', price: 290.00 };
+        case '9':
+            return { productId: '9', name: 'Choco Vanilla Puff', price: 290.00 };
+        case '10':
+            return { productId: '10', name: 'Desire Butter', price: 290.00 };
+        case '11':
+            return { productId: '11', name: 'Desire Milk', price: 290.00 };
+        case '12':
+            return { productId: '12', name: 'Dhoom', price: 290.00 };
+        case '13':
+            return { productId: '13', name: 'Digestive', price: 290.00 };
+        case '14':
+            return { productId: '14', name: 'Double Treat', price: 290.00 };
+        case '15':
+            return { productId: '15', name: 'Gluco Punch', price: 290.00 };
+        case '16':
+            return { productId: '16', name: 'Hum Tum', price: 290.00 };
+        case '17':
+            return { productId: '17', name: 'Jeera Top', price: 290.00 };
+        case '18':
+            return { productId: '18', name: 'Lemon Puff', price: 290.00 };
+        case '19':
+            return { productId: '19', name: 'Lemon Treat', price: 290.00 };
+        case '20':
+            return { productId: '20', name: 'Marie', price: 290.00 };
+        case '21':
+            return { productId: '21', name: 'Milk Treat', price: 290.00 };
+        case '22':
+            return { productId: '22', name: 'Orange Treat', price: 290.00 };
+        case '23':
+            return { productId: '23', name: 'Prime Time', price: 290.00 };
+        case '24':
+            return { productId: '24', name: 'Snacks', price: 290.00 };
+        case '25':
+            return { productId: '25', name: 'Strawberry Puff', price: 290.00 };
+        case '26':
+            return { productId: '26', name: 'Strawberry Treat', price: 290.00 };
+        case '27':
+            return { productId: '27', name: 'Top', price: 290.00 };
         default:
             return null;
     }
