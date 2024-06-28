@@ -71,7 +71,12 @@ function findProductById(productId) {
             return { productId: '1', name: 'Teafarm Gold 250g', price: 135.00 };
         case '2':
             return { productId: '2', name: 'Teafarm Gold 500g', price: 290.00 };
-        // Add more cases for other products as needed
+        case '3':
+            return { productId: '3', name: 'Coconut Crunch', price: 290.00 };
+        case '4':
+            return { productId: '4', name: 'Choco Chip', price: 290.00 };
+        case '5':
+            return { productId: '5', name: 'Choco Puff', price: 290.00 };
         default:
             return null;
     }
