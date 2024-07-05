@@ -152,6 +152,16 @@ function findProductById(productId) {
             return { productId: '57', name: 'Cream Cracker-₹10.00', price: 10.00 };
         case '58':
             return { productId: '58', name: 'Cream Cracker-₹30.00', price: 30.00 };
+        case '59':
+            return { productId: '59', name: 'Marie-₹5.00', price: 5.00 };
+        case '60':
+            return { productId: '60', name: 'Marie-₹10.00', price: 10.00 };
+        case '61':
+            return { productId: '61', name: 'Marie-₹30.00', price: 30.00 };
+        case '62':
+            return { productId: '62', name: 'Marie-₹40.00', price: 40.00 };
+        case '63':
+            return { productId: '63', name: 'Marie-₹50.00', price: 50.00 };
         default:
             return null;
     }
