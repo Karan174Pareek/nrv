@@ -1,35 +1,17 @@
-// Initialize an empty cart array to store cart items
 let cart = [];
-
-// Function to add product to cart
 function addToCart(productId) {
-    // Find product details based on productId (you can implement this based on your backend or directly in JS)
     let product = findProductById(productId);
-    
-    // Check if product already exists in cart
     let existingItem = cart.find(item => item.productId === productId);
-    
     if (existingItem) {
-        // If product already exists, increase quantity
         existingItem.quantity++;
     } else {
-        // If product does not exist, add it to cart with quantity 1
         cart.push({ productId: productId, name: product.name, price: product.price, quantity: 1 });
     }
-    
-    // Update the cart display
     updateCartDisplay();
 }
-
-// Function to update cart display
 function updateCartDisplay() {
-    // Get the cart container element (where you want to display cart items)
     let cartContainer = document.getElementById('cart-container');
-    
-    // Clear existing cart items
     cartContainer.innerHTML = '';
-    
-    // Loop through each item in the cart and display it
     cart.forEach(item => {
         let itemElement = document.createElement('div');
         itemElement.classList.add('cart-item');
@@ -40,93 +22,104 @@ function updateCartDisplay() {
         cartContainer.appendChild(itemElement);
     });
 }
-
-// Function to prepare cart items for WhatsApp message
 function prepareCartForWhatsApp() {
     let message = "Order Details:%0A";
-    
-    // Loop through each item in the cart and add to message
     cart.forEach(item => {
         message += `${item.name} (${item.quantity} case)%0A`;
     });
-    
-    // Encode message for URL
     return encodeURIComponent(message);
 }
-
-// Function to handle checkout (redirect to WhatsApp)
 function checkout() {
     let whatsappMessage = prepareCartForWhatsApp();
     let whatsappURL = `https://wa.me/918101482088?text=${whatsappMessage}`;
-    
-    // Redirect to WhatsApp
     window.location.href = whatsappURL;
 }
-
 function findProductById(productId) {
-    // Implement logic to fetch product details from your data source or hardcode it here
-    // This is a placeholder function
     switch (productId) {
         case '1':
-            return { productId: '1', name: 'Teafarm Gold 250g', price: 135.00 };
+            return { productId: '1', name: 'Strawberry Puff-₹5.00', price: 5.00 };
         case '2':
-            return { productId: '2', name: 'Teafarm Gold 500g', price: 290.00 };
+            return { productId: '2', name: 'Strawberry Puff-₹10.00', price: 10.00 };
         case '3':
-            return { productId: '3', name: 'Teafarm Gold 500g', price: 290.00 };
+            return { productId: '3', name: 'Strawberry Puff-₹20.00', price: 20.00 };
         case '4':
-            return { productId: '4', name: 'Coconut Crunch', price: 290.00 };
+            return { productId: '4', name: 'Lemon Puff-₹5.00', price: 5.00 };
         case '5':
-            return { productId: '5', name: 'Choco Chip', price: 290.00 };
+            return { productId: '5', name: 'Lemon Puff-₹10.00', price: 10.00 };
         case '6':
-            return { productId: '6', name: 'Choco Puff', price: 290.00 };
+            return { productId: '6', name: 'Lemon Puff-₹20.00', price: 20.00 };
         case '7':
-            return { productId: '7', name: 'Cream Cracker', price: 290.00 };
+            return { productId: '7', name: 'Choco Puff-₹5.00', price: 50.00 };
         case '8':
-            return { productId: '8', name: 'Choco Treat', price: 290.00 };
+            return { productId: '8', name: 'Choco Puff-₹10.00', price: 10.00 };
         case '9':
-            return { productId: '9', name: 'Choco Vanilla Puff', price: 290.00 };
+            return { productId: '9', name: 'Choco Puff-₹20.00', price: 20.00 };
         case '10':
-            return { productId: '10', name: 'Desire Butter', price: 290.00 };
+            return { productId: '10', name: 'Choco Vanilla Puff-₹5.00', price: 5.00 };
         case '11':
-            return { productId: '11', name: 'Desire Milk', price: 290.00 };
+            return { productId: '11', name: 'Choco Vanilla Puff-₹10.00', price: 10.00 };
         case '12':
-            return { productId: '12', name: 'Dhoom', price: 290.00 };
+            return { productId: '12', name: 'Choco Vanilla Puff-₹20.00', price: 20.00 };
         case '13':
-            return { productId: '13', name: 'Digestive', price: 290.00 };
+            return { productId: '13', name: 'Orange Puff-₹5.00', price: 5.00 };
         case '14':
-            return { productId: '14', name: 'Double Treat', price: 290.00 };
+            return { productId: '14', name: 'Orange Puff-₹10.00', price: 10.00 };
         case '15':
-            return { productId: '15', name: 'Gluco Punch', price: 290.00 };
+            return { productId: '15', name: 'Orange Puff-₹20.00', price: 20.00 };
         case '16':
-            return { productId: '16', name: 'Hum Tum', price: 290.00 };
+            return { productId: '16', name: 'Choco Treat-₹5.00', price: 5.00 };
         case '17':
-            return { productId: '17', name: 'Jeera Top', price: 290.00 };
+            return { productId: '17', name: 'Choco Treat-₹10.00', price: 10.00 };
         case '18':
-            return { productId: '18', name: 'Lemon Puff', price: 290.00 };
+            return { productId: '18', name: 'Choco Treat-₹20.00', price: 20.00 };
         case '19':
-            return { productId: '19', name: 'Lemon Treat', price: 290.00 };
+            return { productId: '19', name: 'Orange Treat-₹5.00', price: 5.00 };
         case '20':
-            return { productId: '20', name: 'Marie', price: 290.00 };
+            return { productId: '20', name: 'Orange Treat-₹10.00', price: 10.00 };
         case '21':
-            return { productId: '21', name: 'Milk Treat', price: 290.00 };
+            return { productId: '21', name: 'Orange Treat-₹20.00', price: 20.00 };
         case '22':
-            return { productId: '22', name: 'Orange Treat', price: 290.00 };
+            return { productId: '22', name: 'Milk Treat-5.00₹', price: 5.00 };
         case '23':
-            return { productId: '23', name: 'Prime Time', price: 290.00 };
+            return { productId: '23', name: 'Milk Treat-₹10.00', price: 10.00 };
         case '24':
-            return { productId: '24', name: 'Snacks', price: 290.00 };
+            return { productId: '24', name: 'Milk Treat-₹20.00', price: 20.00 };
         case '25':
-            return { productId: '25', name: 'Strawberry Puff', price: 290.00 };
+            return { productId: '25', name: 'Strawberry Treat-₹5.00', price: 5.00 };
         case '26':
-            return { productId: '26', name: 'Strawberry Treat', price: 290.00 };
+            return { productId: '26', name: 'Elaichi Treat-₹5.00', price: 5.00 };
         case '27':
-            return { productId: '27', name: 'Top', price: 290.00 };
+            return { productId: '27', name: 'Elaichi Treat-₹10.00', price: 10.00 };
+        case '28':
+            return { productId: '28', name: 'Elaichi Treat-₹20.00', price: 20.00 };
+        case '29':
+            return { productId: '29', name: 'Double Treat-₹5.00', price: 5.00 };
+        case '30':
+            return { productId: '30', name: 'Double Treat-₹10.00', price: 10.00 };
+        case '31':
+            return { productId: '31', name: 'Double Treat-₹20.00', price: 20.00 };
+        case '32':
+            return { productId: '32', name: 'Lemon Treat-₹5.00', price: 50.00 };
+        case '33':
+            return { productId: '33', name: 'Digestive-₹50.00', price: 5.00 };
+        case '34':
+            return { productId: '34', name: 'Desire Milk-₹5.00', price: 5.00 };
+        case '35':
+            return { productId: '35', name: 'Desire Milk-₹10.00', price: 10.00 };
+        case '36':
+            return { productId: '36', name: 'Desire Milk-₹20.00', price: 20.00 };
+        case '37':
+            return { productId: '37', name: 'Premium Coconut-₹10.00', price: 10.00 };
+        case '38':
+            return { productId: '38', name: 'Premium Coconut-₹20.00', price: 20.00 };
+        case '39':
+            return { productId: '39', name: 'Premium Coconut-₹30.00', price: 30.00 };
+        case '40':
+            return { productId: '40', name: 'Premium Coconut-₹40.00', price: 40.00 };
         default:
             return null;
     }
 }
-
-// Example event listener to handle Add to Cart button click
 document.addEventListener('DOMContentLoaded', function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart-button');
     
@@ -137,16 +130,12 @@ document.addEventListener('DOMContentLoaded', function() {
             addToCart(productId);
         });
     });
-    
-    // Add event listener for checkout button
     let checkoutButton = document.getElementById('checkout-btn');
     checkoutButton.addEventListener('click', function(event) {
         event.preventDefault();
         checkout();
     });
 });
-
-// Handle form validation for login form (Assuming this is in another script)
 const loginForm = document.querySelector('.login-form');
 if (loginForm) {
     loginForm.addEventListener('submit', (event) => {
@@ -158,7 +147,6 @@ if (loginForm) {
             const userId = localStorage.getItem('userId');
             if (userId) {
                 alert('Login successful');
-                // Redirect to the main page
                 window.location.href = 'index.html';
             } else {
                 alert('User not found. Please sign up.');
@@ -168,24 +156,13 @@ if (loginForm) {
         }
     });
 }
-// Function to prepare cart items for WhatsApp message
 function prepareCartForWhatsApp() {
-    let message = "Order Details:\n"; // Initialize message with a header
-    
-    // Loop through each item in the cart and add to message
+    let message = "Order Details:\n"; 
     cart.forEach((item, index) => {
-        // Append each item's details to the message with newline characters
         message += `${item.name} (Quantity: ${item.quantity})\n`;
     });
-    
-    // Encode message for URL
     return encodeURIComponent(message);
 }
-
-
-
-
-// Handle form validation for signup form (Assuming this is in another script)
 const signupForm = document.querySelector('.signup-form');
 if (signupForm) {
     signupForm.addEventListener('submit', (event) => {
@@ -196,28 +173,23 @@ if (signupForm) {
         const confirmPassword = document.querySelector('#confirm-password').value;
 
         if (validateName(name) && validateEmail(email) && validatePassword(password) && password === confirmPassword) {
-            const userId = Date.now(); // Mock user ID generation
+            const userId = Date.now(); 
             localStorage.setItem('userId', userId);
             alert('Signup successful. Your ID is ' + userId);
-            // Redirect to the login page
             window.location.href = 'login.html';
         } else {
             alert('Please fill out the form correctly');
         }
     });
 }
-
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
-
 function validatePassword(password) {
-    // Example: Password should be at least 6 characters
     return password.length >= 8;
 }
 
 function validateName(name) {
-    // Example: Name should be at least 2 characters
     return name.length >= 2;
 }
