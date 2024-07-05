@@ -116,6 +116,42 @@ function findProductById(productId) {
             return { productId: '39', name: 'Premium Coconut-₹30.00', price: 30.00 };
         case '40':
             return { productId: '40', name: 'Premium Coconut-₹40.00', price: 40.00 };
+        case '41':
+            return { productId: '41', name: 'Prime Time-₹10.00', price: 10.00 };
+        case '42':
+            return { productId: '42', name: 'Prime Time-₹20.00', price: 20.00 };
+        case '43':
+            return { productId: '43', name: 'Prime Time-₹40.00', price: 40.00 };
+        case '44':
+            return { productId: '44', name: 'Prime Time-₹50.00', price: 50.00 };
+        case '45':
+            return { productId: '45', name: 'Gluco Punch-₹5.00', price: 5.00 };
+        case '46':
+            return { productId: '46', name: 'Gluco Punch-₹10.00', price: 10.00 };
+        case '47':
+            return { productId: '47', name: 'Desire Butter-₹5.00', price: 5.00 };
+        case '48':
+            return { productId: '48', name: 'Desire Butter-₹10.00', price: 10.00 };
+        case '49':
+            return { productId: '49', name: 'Desire Butter-₹20.00', price: 20.00 };
+        case '50':
+            return { productId: '50', name: 'Desire Butter-₹30.00', price: 30.00 };
+        case '51':
+            return { productId: '51', name: 'Desire Butter-₹40.00', price: 40.00 };
+        case '52':
+            return { productId: '52', name: 'Desire Kaju-₹5.00', price: 5.00 };
+        case '53':
+            return { productId: '53', name: 'Desire Kaju-₹10.00', price: 10.00 };
+        case '54':
+            return { productId: '54', name: 'Desire Kaju-₹20.00', price: 20.00 };
+        case '55':
+            return { productId: '55', name: 'Desire Kaju-₹30.00', price: 30.00 };
+        case '56':
+            return { productId: '56', name: 'Desire Kaju-₹40.00', price: 40.00 };
+        case '57':
+            return { productId: '57', name: 'Cream Cracker-₹10.00', price: 10.00 };
+        case '58':
+            return { productId: '58', name: 'Cream Cracker-₹30.00', price: 30.00 };
         default:
             return null;
     }
