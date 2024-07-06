@@ -31,7 +31,7 @@ function prepareCartForWhatsApp() {
 }
 function checkout() {
     let whatsappMessage = prepareCartForWhatsApp();
-    let whatsappURL = `https://wa.me/918101482088?text=${whatsappMessage}`;
+    let whatsappURL = `https://wa.me/919932160137?text=${whatsappMessage}`;
     window.location.href = whatsappURL;
 }
 function findProductById(productId) {
