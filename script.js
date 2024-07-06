@@ -196,6 +196,32 @@ function findProductById(productId) {
             return { productId: '79', name: 'Biggo-₹20.00', price: 20.00 };
         case '80':
             return { productId: '80', name: 'Biggo-₹30.00', price: 30.00 };
+        case '81':
+            return { productId: '81', name: 'Chocolate Sliced Cake-₹10.00', price: 10.00 };
+        case '82':
+            return { productId: '82', name: 'Chocolate Sliced Cake-₹30.00', price: 30.00 };
+        case '83':
+            return { productId: '83', name: 'Mixed Fruit Sliced Cake-₹10.00', price: 10.00 };
+        case '84':
+            return { productId: '84', name: 'Mixed Fruit Sliced Cake-₹30.00', price: 30.00 };
+        case '85':
+            return { productId: '85', name: 'Chocolate Cake Vanilla Cream-₹5.00', price: 5.00 };
+        case '86':
+            return { productId: '86', name: 'Vanilla Cake Vanilla Cream-₹5.00', price: 5.00 };
+        case '87':
+            return { productId: '87', name: 'Chocolate Cake Chocolate Cream-₹5.00', price: 5.00 };
+        case '88':
+            return { productId: '88', name: 'Mango Cake Mango Cream-₹5.00', price: 5.00 };
+        case '89':
+            return { productId: '89', name: 'Orange Cake Orange Cream-₹5.00', price: 5.00 };
+        case '90':
+            return { productId: '90', name: 'Vanilla Cake Strawberry Cream-₹5.00', price: 5.00 };
+        case '91':
+            return { productId: '91', name: 'Vanilla Cake Chocolate Cream-₹5.00', price: 5.00 };
+        case '92':
+            return { productId: '92', name: 'Swiss Roll Chocolate-₹10.00', price: 10.00 };
+        case '93':
+            return { productId: '93', name: 'Swiss Roll Vanilla-₹10.00', price: 10.00 };
         default:
             return null;
     }
