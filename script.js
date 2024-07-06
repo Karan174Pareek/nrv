@@ -162,6 +162,40 @@ function findProductById(productId) {
             return { productId: '62', name: 'Marie-₹40.00', price: 40.00 };
         case '63':
             return { productId: '63', name: 'Marie-₹50.00', price: 50.00 };
+        case '64':
+            return { productId: '64', name: 'Nutro Thin Arrowroot-₹5.00', price: 5.00 };
+        case '65':
+            return { productId: '65', name: 'Nutro Thin Arrowroot-₹30.00', price: 30.00 };
+        case '66':
+            return { productId: '66', name: 'Snacks-₹5.00', price: 5.00 };
+        case '67':
+            return { productId: '67', name: 'Snacks-₹10.00', price: 10.00 };
+        case '68':
+            return { productId: '68', name: 'Snacks-₹20.00', price: 20.00 };
+        case '69':
+            return { productId: '69', name: 'Hum Tum-₹5.00', price: 5.00 };
+        case '70':
+            return { productId: '70', name: 'Hum Tum-₹10.00', price: 10.00 };
+        case '71':
+            return { productId: '71', name: 'Hum Tum-₹20.00', price: 20.00 };
+        case '72':
+            return { productId: '72', name: 'Top-₹5.00', price: 5.00 };
+        case '73':
+            return { productId: '73', name: 'Top-₹10.00', price: 10.00 };
+        case '74':
+            return { productId: '74', name: 'Top-₹20.00', price: 20.00 };
+        case '75':
+            return { productId: '75', name: 'Top-₹30.00', price: 30.00 };
+        case '76':
+            return { productId: '76', name: 'Jeera Top-₹10.00', price: 10.00 };
+        case '77':
+            return { productId: '77', name: 'Jeera Top-₹20.00', price: 20.00 };
+        case '78':
+            return { productId: '78', name: 'Jeera Top-₹30.00', price: 30.00 };
+        case '79':
+            return { productId: '79', name: 'Biggo-₹20.00', price: 20.00 };
+        case '80':
+            return { productId: '80', name: 'Biggo-₹30.00', price: 30.00 };
         default:
             return null;
     }
