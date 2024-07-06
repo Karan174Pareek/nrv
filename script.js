@@ -222,6 +222,12 @@ function findProductById(productId) {
             return { productId: '92', name: 'Swiss Roll Chocolate-₹10.00', price: 10.00 };
         case '93':
             return { productId: '93', name: 'Swiss Roll Vanilla-₹10.00', price: 10.00 };
+        case '94':
+            return { productId: '94', name: 'Yum Cake-₹5.00', price: 5.00 };
+        case '95':
+            return { productId: '95', name: 'Cream Roll Chocolate-₹10.00', price: 10.00 };
+        case '96':
+            return { productId: '96', name: 'Cream Roll Vanilla-₹10.00', price: 10.00 };
         default:
             return null;
     }
