@@ -9,7 +9,7 @@ function addToCart(productId) {
     }
     updateCartDisplay();
 }
-function updateCartDisplay() {
+/*function updateCartDisplay() {
     let cartContainer = document.getElementById('cart-container');
     cartContainer.innerHTML = '';
     cart.forEach(item => {
@@ -21,7 +21,52 @@ function updateCartDisplay() {
         `;
         cartContainer.appendChild(itemElement);
     });
+}*/
+function updateCartDisplay() {
+    let cartContainer = document.getElementById('cart-container');
+    cartContainer.innerHTML = '';
+
+    // Create the button
+    let showCartButton = document.createElement('button');
+    showCartButton.textContent = 'Show Cart';
+    showCartButton.classList.add('show-cart-button');
+    
+    // Add the button to the cart container
+    cartContainer.appendChild(showCartButton);
+
+    // Create a container for the cart items
+    let itemsContainer = document.createElement('div');
+    itemsContainer.classList.add('items-container');
+    
+    // Add cart items to the container
+    cart.forEach(item => {
+        let itemElement = document.createElement('div');
+        itemElement.classList.add('cart-item');
+        itemElement.innerHTML = `
+            <span>${item.name}</span>
+            <span>Quantity: ${item.quantity}</span>
+        `;
+        itemsContainer.appendChild(itemElement);
+    });
+
+    // Add the items container to the cart container
+    cartContainer.appendChild(itemsContainer);
+
+    // Hide the items container initially
+    itemsContainer.style.display = 'none';
+
+    // Toggle items container visibility on button click
+    showCartButton.addEventListener('click', () => {
+        if (itemsContainer.style.display === 'none') {
+            itemsContainer.style.display = 'block';
+            showCartButton.textContent = 'Hide Cart';
+        } else {
+            itemsContainer.style.display = 'none';
+            showCartButton.textContent = 'Show Cart';
+        }
+    });
 }
+
 function prepareCartForWhatsApp() {
     let message = "Order Details:%0A";
     cart.forEach(item => {
