@@ -1,4 +1,6 @@
 let cart = [];
+
+// Function to add items to the cart
 function addToCart(productId) {
     let product = findProductById(productId);
     let existingItem = cart.find(item => item.productId === productId);
@@ -9,26 +11,13 @@ function addToCart(productId) {
     }
     updateCartDisplay();
 }
-/*function updateCartDisplay() {
-    let cartContainer = document.getElementById('cart-container');
-    cartContainer.innerHTML = '';
-    cart.forEach(item => {
-        let itemElement = document.createElement('div');
-        itemElement.classList.add('cart-item');
-        itemElement.innerHTML = `
-            <span>${item.name}</span>
-            <span>Quantity: ${item.quantity}</span>
-        `;
-        cartContainer.appendChild(itemElement);
-    });
-}*/
+
+// Function to update the cart display
 function updateCartDisplay() {
     let cartContainer = document.getElementById('cart-container');
     cartContainer.innerHTML = '';
-
-    // Create the button
     let showCartButton = document.createElement('button');
-    showCartButton.textContent = 'Show Cart';
+    showCartButton.textContent = 'Hide Cart'; // Initially show 'Hide Cart'
     showCartButton.classList.add('show-cart-button');
     
     // Add the button to the cart container
@@ -44,25 +33,56 @@ function updateCartDisplay() {
         itemElement.classList.add('cart-item');
         itemElement.innerHTML = `
             <span>${item.name}</span>
-            <span>Quantity: ${item.quantity}</span>
+            <button class="decrease-qty">-</button>
+            <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+            <button class="increase-qty">+</button>
+            <span>Price: ₹${item.price * item.quantity}</span>
         `;
         itemsContainer.appendChild(itemElement);
+
+        // Get references to the increase/decrease buttons and quantity input
+        let decreaseBtn = itemElement.querySelector('.decrease-qty');
+        let increaseBtn = itemElement.querySelector('.increase-qty');
+        let quantityInput = itemElement.querySelector('.quantity-input');
+
+        // Add event listeners to buttons and input field
+        decreaseBtn.addEventListener('click', () => {
+            if (item.quantity > 1) {
+                item.quantity--;
+                quantityInput.value = item.quantity;
+                updateCartDisplay(); // Update display after changing quantity
+            }
+        });
+
+        increaseBtn.addEventListener('click', () => {
+            item.quantity++;
+            quantityInput.value = item.quantity;
+            updateCartDisplay(); // Update display after changing quantity
+        });
+
+        quantityInput.addEventListener('change', (e) => {
+            let newQuantity = parseInt(e.target.value);
+            if (newQuantity >= 1) {
+                item.quantity = newQuantity;
+                updateCartDisplay(); // Update display after changing quantity
+            } else {
+                e.target.value = item.quantity; // Revert to the current quantity if input is invalid
+            }
+        });
     });
 
     // Add the items container to the cart container
     cartContainer.appendChild(itemsContainer);
 
-    // Hide the items container initially
-    itemsContainer.style.display = 'none';
+    itemsContainer.style.display = 'block';  // Cart is visible by default
 
-    // Toggle items container visibility on button click
     showCartButton.addEventListener('click', () => {
         if (itemsContainer.style.display === 'none') {
             itemsContainer.style.display = 'block';
-            showCartButton.textContent = 'Hide Cart';
+            showCartButton.textContent = 'Hide Cart';  // Change button text
         } else {
             itemsContainer.style.display = 'none';
-            showCartButton.textContent = 'Show Cart';
+            showCartButton.textContent = 'Show Cart';  // Change button text
         }
     });
 }
@@ -70,10 +90,11 @@ function updateCartDisplay() {
 function prepareCartForWhatsApp() {
     let message = "Order Details:%0A";
     cart.forEach(item => {
-        message += `${item.name} (${item.quantity} case)%0A`;
+        message += `${item.name} (Quantity: ${item.quantity})%0A`;
     });
     return encodeURIComponent(message);
 }
+
 function checkout() {
     let whatsappMessage = prepareCartForWhatsApp();
     let whatsappURL = `https://wa.me/919932160137?text=${whatsappMessage}`;
