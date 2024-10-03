@@ -51,6 +51,10 @@ function updateCartDisplay() {
                 item.quantity--;
                 quantityInput.value = item.quantity;
                 updateCartDisplay(); // Update display after changing quantity
+            } else if (item.quantity === 1) {
+                // Remove item from the cart if quantity is 1
+                cart = cart.filter(cartItem => cartItem.productId !== item.productId);
+                updateCartDisplay(); // Update display after removing item
             }
         });
 
@@ -65,6 +69,10 @@ function updateCartDisplay() {
             if (newQuantity >= 1) {
                 item.quantity = newQuantity;
                 updateCartDisplay(); // Update display after changing quantity
+            } else if (newQuantity === 0) {
+                // Remove item from the cart if quantity is 0
+                cart = cart.filter(cartItem => cartItem.productId !== item.productId);
+                updateCartDisplay(); // Update display after removing item
             } else {
                 e.target.value = item.quantity; // Revert to the current quantity if input is invalid
             }
